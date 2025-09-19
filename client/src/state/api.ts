@@ -189,8 +189,8 @@ export const api = createApi({
 
     removeFavoriteProperty: build.mutation<
       Tenant,
-      { cognitoId: string; propertyId: number }>
-    ({
+      { cognitoId: string; propertyId: number }
+    >({
       query: ({ cognitoId, propertyId }) => ({
         url: `tenants/${cognitoId}/favorites/${propertyId}`,
         method: "DELETE",
