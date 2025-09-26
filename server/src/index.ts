@@ -1,3 +1,4 @@
+import 'dotenv/config'
 import express from "express";
 import dotenv from "dotenv";
 import bodyParser from "body-parser";
@@ -13,7 +14,6 @@ import leaseRoutes from "./routes/leaseRoutes"
 import applicationRoutes from "./routes/applicationRoutes"
 
 // CONFIGURATIONS
-dotenv.config();
 const app = express();
 app.use(express.json());
 app.use(helmet());

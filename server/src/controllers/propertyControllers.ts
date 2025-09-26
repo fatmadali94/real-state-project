@@ -9,12 +9,12 @@ import axios from "axios";
 const prisma = new PrismaClient();
 
 
-if (!process.env.AWS_REGION) {
-  throw new Error("AWS_REGION is not defined");
-}
-const s3Client = new S3Client({
-  region: process.env.AWS_REGION,
-});
+const getS3Client = () => {
+  const region = process.env.AWS_REGION;
+  if (!region) throw new Error("AWS_REGION is not defined");
+  return new S3Client({ region });
+};
+
 
 export const getProperties = async (
   req: Request,
